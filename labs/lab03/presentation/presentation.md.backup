@@ -1,95 +1,61 @@
 ---
 ## Front matter
-title: "Отчёт по лабораторной работе №3"
-subtitle: "Администрирование локальных сетей"
-author: "Ищенко Ирина НПИбд-02-22"
-
-## Generic otions
 lang: ru-RU
-toc-title: "Содержание"
+title: Лабораторная работа №3
+subtitle: Администрирование локальных сетей
+author:
+  - Ищенко Ирина
+institute:
+  - Российский университет дружбы народов, Москва, Россия
 
-## Bibliography
-bibliography: bib/cite.bib
-csl: pandoc/csl/gost-r-7-0-5-2008-numeric.csl
 
-## Pdf output format
-toc: true # Table of contents
-toc-depth: 2
-lof: true # List of figures
-lot: true # List of tables
-fontsize: 12pt
-linestretch: 1.5
-papersize: a4
-documentclass: scrreprt
-## I18n polyglossia
-polyglossia-lang:
-  name: russian
-  options:
-	- spelling=modern
-	- babelshorthands=true
-polyglossia-otherlangs:
-  name: english
-## I18n babel
+## i18n babel
 babel-lang: russian
 babel-otherlangs: english
-## Fonts
-mainfont: IBM Plex Serif
-romanfont: IBM Plex Serif
-sansfont: IBM Plex Sans
-monofont: IBM Plex Mono
-mathfont: STIX Two Math
-mainfontoptions: Ligatures=Common,Ligatures=TeX,Scale=0.94
-romanfontoptions: Ligatures=Common,Ligatures=TeX,Scale=0.94
-sansfontoptions: Ligatures=Common,Ligatures=TeX,Scale=MatchLowercase,Scale=0.94
-monofontoptions: Scale=MatchLowercase,Scale=0.94,FakeStretch=0.9
-mathfontoptions:
-## Biblatex
-biblatex: true
-biblio-style: "gost-numeric"
-biblatexoptions:
-  - parentracker=true
-  - backend=biber
-  - hyperref=auto
-  - language=auto
-  - autolang=other*
-  - citestyle=gost-numeric
-## Pandoc-crossref LaTeX customization
-figureTitle: "Рис."
-tableTitle: "Таблица"
-listingTitle: "Листинг"
-lofTitle: "Список иллюстраций"
-lotTitle: "Список таблиц"
-lolTitle: "Листинги"
-## Misc options
-indent: true
+
+## Formatting pdf
+toc: false
+toc-title: Содержание
+slide_level: 2
+aspectratio: 169
+section-titles: true
+theme: metropolis
 header-includes:
-  - \usepackage{indentfirst}
-  - \usepackage{float} # keep figures where there are in the text
-  - \floatplacement{figure}{H} # keep figures where there are in the text
+ - \metroset{progressbar=frametitle,sectionpage=progressbar,numbering=fraction}
 ---
 
-# Цель работы
+## Докладчик
 
-Познакомиться с принципами планирования локальной сети организации [@netadmin].
+:::::::::::::: {.columns align=center}
+::: {.column width="70%"}
 
-# Задание
+  * Ищенко Ирина Олеговна
+  * уч. группа: НПИбд-02-22
+  * 1132226529
+  * Факультет физико-математических и естественных наук
 
-1. Используя графический редактор Dia, требуется повторить
-схемы L1, L2, L3, а также сопутствующие им таблицы VLAN, IP-адресов
-и портов подключения оборудования планируемой сети.
-2. Рассмотренный выше пример планирования адресного пространства сети
-базируется на разбиении сети 10.128.0.0/16 на соответствующие подсети.
-Требуется сделать аналогичный план адресного пространства для сетей 172.16.0.0/12 и 192.168.0.0/16 с соответствующими схемами сети и сопутствующими таблицами VLAN, IP-адресов и портов подключения оборудования.
+:::
+::: {.column width="30%"}
+
+
+:::
+::::::::::::::
+
+
+## Цель работы
+
+Познакомиться с принципами планирования локальной сети организации.
+
 
 # Выполнение лабораторной работы
 
-Построим схему физического уровня в Dia (рис. [-@fig:001]). Используем устройства: маршрутизатор Cisco 2811, коммутаторы Cisco 2950. Укажем порты устройст.
+##
 
 ![Физический уровень](image/1.png){#fig:001 width=70%}
 
-Составим таблицу распределения VLAN. Каждой группе выделим отдельный номер в табл.[-@tbl:vlan].
+##
 
-:Таблица VLAN {#tbl:vlan}
+:Таблица VLAN
 
 | № VLAN       | Имя VLAN    | Примечание                  |
 |--------------|-------------|-----------------------------|
@@ -102,17 +68,17 @@ header-includes:
 | 103          | adm         | Администрация               |
 | 104          | other       | Для других пользователей    |
 
-Построим схему канального уровня в Dia (рис. [-@fig:002]).
+##
 
 ![Канальный уровень](image/2.png){#fig:002 width=70%}
 
-Построим схему сетевого уровня (рис. [-@fig:003]).
+##
 
 ![Сетевой уровень](image/3.png){#fig:003 width=70%}
 
-Подробно заполним таблицу IP-адресов [-@tbl:ip].
+##
 
-:Таблица IP. Сеть 10.128.0.0/16 {#tbl:ip}
+:Таблица IP. Сеть 10.128.0.0/16 
 
 | IP-адреса               | Примечание                 | VLAN |
 |-------------------------|----------------------------|------|
@@ -132,6 +98,13 @@ header-includes:
 | 10.128.1.5              | Msk-donskaya-ioithenko-sw-4          |      |
 | 10.128.1.6              | msk-pavlovskaya-ioithenko-sw-1       |      |
 | 10.128.1.7-10.128.1.254 | Зарезервировано            |      |
+
+##
+
+:Таблица IP. Сеть 10.128.0.0/16
+
+| IP-адреса               | Примечание                 | VLAN |
+|-------------------------|----------------------------|------|
 | 10.128.2.0/24           | Сеть Point-to-Point        |      |
 | 10.128.2.1              | Шлюз                       |      |
 | 10.128.2.2-10.128.2.254 | Зарезервировано            |      |
@@ -148,9 +121,9 @@ header-includes:
 | 10.128.6.1              | Шлюз                       |      |
 | 10.128.6.2-10.128.6.254 | Пул для пользователей      |      |
 
-В табл. [-@tbl:fiz] приведён план подключения оборудования сети по портам.
+##
 
-:Таблица портов {#tbl:fiz}
+:Таблица портов
 
 | Устройство                       | Порт        | Примечание           | Access VLAN | Trunk VLAN               |
 |----------------------------------|-------------|----------------------|-------------|--------------------------|
@@ -164,6 +137,13 @@ header-includes:
 |                                  | g0/2        | msk-donskaya-sw-3    |             | 2, 3                     |
 |                                  | f0/1        | Web-server           | 3           |                          |
 |                                  | f0/2        | File-server          | 3           |                          |
+
+##
+
+:Таблица портов
+
+| Устройство                       | Порт        | Примечание           | Access VLAN | Trunk VLAN               |
+|----------------------------------|-------------|----------------------|-------------|--------------------------|
 | msk-donskaya-ioithenko-sw-3    | g0/1        | msk-donskaya-sw-2    |             | 2, 3                     |
 |                                  | f0/1        | Mail-server          | 3           |                          |
 |                                  | f0/2        | Dns-server           | 3           |                          |
@@ -176,9 +156,9 @@ header-includes:
 |                                  | f0/1–f0/15  | dk                   | 101         |                          |
 |                                  | f0/20       | other                | 104         |                          | 
 
-Регламент выделения ip-адресов дан в табл. [-@tbl:reg].
+##
 
-:Регламент выделения ip-адресов (для сети класса C) {#tbl:reg}
+:Регламент выделения ip-адресов (для сети класса C) 
 
 | IP-адреса | Назначение           |
 |-----------|----------------------|
@@ -190,11 +170,11 @@ header-includes:
 | 220–229   | Принтеры             |
 | 230–254   | Резерв               |
 
-Для сети 172.16.0.0/12 также можно выделить маску подсети 172.16.0.0/24. На физическом и канальном уровнях изменений нет. Составим схему сетевого уровня для указанной сети (рис. [-@fig:004]). 
+##
 
 ![Сетевой уровень](image/4.png){#fig:004 width=70%}
 
-Заполним таблицу IP-адресов  [-@tbl:ip2].
+##
 
 :Таблица IP. Сеть 172.16.0.0/12 {#tbl:ip2}
 
@@ -216,6 +196,13 @@ header-includes:
 | 172.16.1.5              | Msk-donskaya-ioithenko-sw-4          |      |
 | 172.16.1.6              | msk-pavlovskaya-ioithenko-sw-1       |      |
 | 172.16.1.7-172.16.1.254 | Зарезервировано            |      |
+
+##
+
+:Таблица IP. Сеть 172.16.0.0/12 {#tbl:ip2}
+
+| IP-адреса               | Примечание                 | VLAN |
+|-------------------------|----------------------------|------|
 | 172.16.2.0/24           | Сеть Point-to-Point        |      |
 | 172.16.2.1              | Шлюз                       |      |
 | 172.16.2.2-172.16.2.254 | Зарезервировано            |      |
@@ -232,11 +219,11 @@ header-includes:
 | 172.16.6.1              | Шлюз                       |      |
 | 172.16.6.2-172.16.6.254 | Пул для пользователей      |      |
 
-Повторим тоже самое для сети 192.168.0.0/16 (рис. [-@fig:005]). 
+##
 
 ![Сетевой уровень](image/5.png){#fig:005 width=70%}
 
-Физический и канальный уровень также не меняются. Заполним таблицу адресов [-@tbl:ip3].
+##
 
 :Таблица IP. Сеть 192.168.0.0/16 {#tbl:ip3}
 
@@ -258,6 +245,13 @@ header-includes:
 | 192.168.1.5              | Msk-donskaya-ioithenko-sw-4          |      |
 | 192.168.1.6              | msk-pavlovskaya-ioithenko-sw-1       |      |
 | 192.168.1.7-192.168.1.254 | Зарезервировано            |      |
+
+##
+
+:Таблица IP. Сеть 192.168.0.0/16 {#tbl:ip3}
+
+| IP-адреса               | Примечание                 | VLAN |
+|-------------------------|----------------------------|------|
 | 192.168.2.0/24           | Сеть Point-to-Point        |      |
 | 192.168.2.1              | Шлюз                       |      |
 | 192.168.2.2-192.168.2.254 | Зарезервировано            |      |
@@ -275,12 +269,6 @@ header-includes:
 | 192.168.6.2-192.168.6.254 | Пул для пользователей      |      |
 
 
-# Выводы
+## Выводы
 
 В ходе лабораторной работы я познакомилась с принципами планирования локальной сети организации.
-
-
-# Список литературы{.unnumbered}
-
-::: {#refs}
-:::
