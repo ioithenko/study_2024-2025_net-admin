@@ -179,11 +179,11 @@ header-includes:
 
 3. Как проверить работоспособность маршрута?
 
-Командой `ping` или `traceroute`
+Командой ping или traceroute
 
 4. Как посмотреть таблицу маршрутизации?
 
-Командой `show ip route`
+Командой show ip route
 
 # Список литературы{.unnumbered}
 
